@@ -1,0 +1,121 @@
+:root {
+  --primary: #009681;
+  --secondary: #EDC8C3;
+
+  --bg-color: #dde8ea;
+  --color: #060606;
+  --font-size: 1rem;
+  --border-radius: 3px;
+  --padding: 1rem;
+  --margin: 1rem;
+  --transition: .13s ease-in-out;
+}
+
+* {
+  // yah, it's slow but who cares about it with computers that are nowadays? 
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--padding)) var(--padding) calc(var(--padding) * 3) var(--padding);
+  background: url(https://images.unsplash.com/photo-1530789253388-582c481c54b0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dc13cbcfa55d6c1392beb465948a0209&auto=format&fit=crop&w=1500&q=80);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.site-title {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin-top: calc(var(--margin) * .5);
+  font-size: var(--font-size);
+  color: #0a0a0acc;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  padding: var(--padding);
+  margin: calc(var(--margin) * .5);
+  letter-spacing: 1px;
+  color: var(--color);
+  text-transform: uppercase;
+  background: #ffffffcc;
+  border-radius: var(--border-radius);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: var(--padding);
+  margin: calc(var(--margin) * .5);
+  font-size: var(--font-size);
+  color: #f0f0f0;
+  cursor: pointer;
+  background: var(--primary);
+  background: linear-gradient(to right, transparent 0%, var(--primary) 25%, transparent 50%, transparent 50%, var(--secondary) 75%, transparent 100%);
+  background-size: 200%;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+
+  &:hover {
+    color: black;
+    background-position: 100%;
+  }
+}
+
+.input,
+.btn {
+  border: 0;
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 1px 3px var(--primary);
+  }
+}
+
+.search-country {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-submit {
+  display: block;
+  width: 100%;
+}
+
+.site-footer {
+  padding: var(--padding);
+  text-align: right;
+}
+
+@media (min-width: 480px) {
+  .search-country {
+    width: 35%;
+    margin: 0 auto;
+  }
+}
