@@ -8,18 +8,9 @@ const resultsCountriesFound = document.querySelector("#resultsCountriesFound")
 const countrySearch = document.querySelector("#countrySearch")
 const countryName = document.querySelector("#countryName")
 
-/*
 countrySearch.addEventListener('submit', e => {
   e.preventDefault()
   fetch(`${apiKey}/name/${countryName.value}`)
-    .then(res => res.json())
-    .then(data => manageData(data))
-    .catch(err => console.log(err))
-}) */
-
-// just for tests 😉
-document.addEventListener('DOMContentLoaded', e => {
-  fetch(`${apiKey}/name/Pol`)
     .then(res => res.json())
     .then(data => manageData(data))
     .catch(err => console.log(err))
