@@ -37,24 +37,25 @@ function displayData(data) {
       <h3>There's more than 1 result.</h3>
     `
   } else {
+    const {
+      name,
+      flag,
+      nativeName,
+      capital,
+      currencies
+    } = data[0]
     results.innerHTML = `
-      <h3>${ data[0].name } <img src="${ data[0].flag}" width="16" alt></h3>
+      <h3>${ name } <img src="${ flag }" width="16" alt></h3>
 
       <dl class="info-box">
         <dt class="info-title">Native Name</dt>
-        <dd class="info-value">${ data[0].nativeName }</dd>
-
-        <dt class="info-title">Native Name</dt>
-        <dd class="info-value">${ data[0].nativeName }</dd>
+        <dd class="info-value">${ nativeName }</dd>
 
         <dt class="info-title">Capital</dt>
-        <dd class="info-value">${ data[0].capital }</dd>
-
-        <dt class="info-title">Native Name</dt>
-        <dd class="info-value">${ data[0].nativeName }</dd>
+        <dd class="info-value">${ capital }</dd>
 
         <dt class="info-title">Main Currency</dt>
-        <dd class="info-value">${ data[0].currencies[0].name }</dd>
+        <dd class="info-value">${ currencies[0].name }</dd>
       </dl>
     `
   }
