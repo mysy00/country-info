@@ -2,6 +2,9 @@ require('./styles/index.scss');
 
 const apiKey = 'https://restcountries.eu/rest/v2'
 const results = document.querySelector("#results")
+const resultsTitle = document.querySelector("#resultsTitle")
+const resultsContent = document.querySelector("#resultsContent")
+const resultsCountriesFound = document.querySelector("#resultsCountriesFound")
 const countrySearch = document.querySelector("#countrySearch")
 const countryName = document.querySelector("#countryName")
 
@@ -10,55 +13,57 @@ countrySearch.addEventListener('submit', e => {
   e.preventDefault()
   fetch(`${apiKey}/name/${countryName.value}`)
     .then(res => res.json())
-    .then(data => displayData(data))
+    .then(data => manageData(data))
     .catch(err => console.log(err))
 }) */
 
 // just for tests 😉
 document.addEventListener('DOMContentLoaded', e => {
-  fetch(`${apiKey}/name/Poland`)
+  fetch(`${apiKey}/name/Pol`)
     .then(res => res.json())
-    .then(data => displayData(data))
+    .then(data => manageData(data))
     .catch(err => console.log(err))
 })
 
-function displayData(data) {
+const manageData = data => {
   console.log(data)
   if (data.status) {
-    results.innerHTML = `
-      <h3>Ops! Looks like there's no data to display.</h3>
-    `
+    results.innerHTML = '<h3>Ops! Looks like there\'s no data to display.</h3>'
     return false;
   }
-  if (data.length > 1) {
-    // TODO: Let user choose a country
-    let countryNumber = 0
-    results.innerHTML = `
-      <h3>There's more than 1 result.</h3>
-    `
-  } else {
+  data.forEach((country, index) => {
     const {
       name,
       flag,
       nativeName,
       capital,
       currencies
-    } = data[0]
-    results.innerHTML = `
-      <h3>${ name } <img src="${ flag }" width="16" alt></h3>
+    } = data[index]
+    const foundData = `
+      <div class="country" data-result="${index}">
+        <h3 class="country-title">${ name } <img src="${ flag }" alt width="16"></h3>
 
-      <dl class="info-box">
-        <dt class="info-title">Native Name</dt>
-        <dd class="info-value">${ nativeName }</dd>
-
-        <dt class="info-title">Capital</dt>
-        <dd class="info-value">${ capital }</dd>
-
-        <dt class="info-title">Main Currency</dt>
-        <dd class="info-value">${ currencies[0].name }</dd>
-      </dl>
+        <dl class="country-info">
+          <dt class="info-title">Native Name</dt>
+          <dd class="info-value">${ nativeName }</dd>
+  
+          <dt class="info-title">Capital</dt>
+          <dd class="info-value">${ capital }</dd>
+  
+          <dt class="info-title">Main Currency</dt>
+          <dd class="info-value">${ currencies[0].name }</dd>
+        </dl>
+      </div>
     `
-  }
+    if (data.length > 1) {
+      resultsTitle.innerHTML = `<h3>We found ${ index + 1} countries!</h3>`
+      resultsCountriesFound.innerHTML += `<li class="country-found" data-country="${index}">${name}</li>`
+      resultsContent.innerHTML += foundData
+    } else {
+      resultsTitle.innerHTML = `<h3>We found a country!</h3>`
+      resultsContent.innerHTML += foundData
+    }
+  })
 }
 
 // Display current year, used in the footer

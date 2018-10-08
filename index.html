@@ -13,6 +13,13 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
 </head>
 <body>
+  <noscript>
+    <p>
+      Sorry, but this page requires JavaScript to work.
+      Time is passing by and somehow it doesn't want to work on your machine.
+      You immediately should concider either upgrading your web browser or enabling it. 
+    </p>
+  </noscript>
   <header class="site-header">
     <div class="site-title">
         <h1 class="title">Country Search</h1>
@@ -24,7 +31,11 @@
     </form>
   </header>
 
-  <main class="site-content" id="results"></main>
+  <main class="site-content" id="results">
+    <div id="resultsTitle"></div>
+    <ol id="resultsCountriesFound"></ol>
+    <div id="resultsContent"></div>
+  </main>
 
   <footer class="site-footer">
     <p>
