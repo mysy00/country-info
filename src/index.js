@@ -37,6 +37,12 @@ const manageData = data => {
       flag,
       nativeName,
       capital,
+      population,
+      alpha2Code,
+      alpha3Code,
+      callingCodes,
+      topLevelDomain,
+      subregion,
       currencies
     } = data[index]
     const foundData = `
@@ -44,14 +50,52 @@ const manageData = data => {
         <h3 class="country-title">${ name } <img src="${ flag }" alt width="16"></h3>
 
         <dl class="country-info">
-          <dt class="info-title">Native Name</dt>
-          <dd class="info-value">${ nativeName }</dd>
+          <div class="info-group">
+            <dt class="info-title">Native Name</dt>
+            <dd class="info-value">${ nativeName }</dd>
+          </div>
   
-          <dt class="info-title">Capital</dt>
-          <dd class="info-value">${ capital }</dd>
-  
-          <dt class="info-title">Main Currency</dt>
-          <dd class="info-value">${ currencies[0].name }</dd>
+          <div class="info-group">
+            <dt class="info-title">Capital</dt>
+            <dd class="info-value">${ capital }</dd>
+          </div>
+
+          <div class="info-group">
+            <dt class="info-title">Population</dt>
+            <dd class="info-value">${ population }</dd>
+          </div>
+
+          <div class="info-group">
+            <dt class="info-title">Alpha Code</dt>
+            <dd class="info-value">${ alpha2Code }</dd>
+          </div>
+
+          <div class="info-group">
+            <dt class="info-title">Alpha Code 2</dt>
+            <dd class="info-value">${ alpha3Code }</dd>
+          </div>
+          
+          <div class="info-group">
+            <dt class="info-title">Subregion</dt>
+            <dd class="info-value">${ subregion }</dd>
+          </div>
+        </dl>
+
+        <dl class="country-info">
+          <div class="info-group">
+            <dt class="info-title">Currencies</dt>
+            <dd class="info-value">${ currencies[0].name }</dd>
+          </div>
+    
+          <div class="info-group">
+            <dt class="info-title">Calling Codes</dt>
+            <dd class="info-value">${ callingCodes[0] }</dd>
+          </div>
+
+          <div class="info-group">
+            <dt class="info-title">Internet Domains</dt>
+            <dd class="info-value">${ topLevelDomain[0] }</dd>
+          </div>
         </dl>
       </div>
     `
