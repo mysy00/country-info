@@ -18,6 +18,9 @@ countrySearch.addEventListener('submit', e => {
 
 const manageData = data => {
   console.log(data)
+  resultsTitle.innerHTML = ''
+  resultsContent.innerHTML = ''
+  resultsCountriesFound.innerHTML = ''
   if (data.status) {
     results.innerHTML = '<h3>Ops! Looks like there\'s no data to display.</h3>'
     return false;
