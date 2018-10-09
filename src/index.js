@@ -52,7 +52,7 @@ const manageData = data => {
     } = data[index]
     const foundData = `
       <div class="country" data-result="${index}">
-        <h3 class="country-title">${ name } <img class="country-flag" src="${ flag }" alt></h3>
+        <h3 class="country-title" tabindex="${index+3}">${ name } <img class="country-flag" src="${ flag }" alt></h3>
 
         <dl class="country-info">
           <div class="info-group">
