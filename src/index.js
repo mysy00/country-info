@@ -7,9 +7,19 @@ const resultsContent = document.querySelector("#resultsContent")
 const resultsCountriesFound = document.querySelector("#resultsCountriesFound")
 const countrySearch = document.querySelector("#countrySearch")
 const countryName = document.querySelector("#countryName")
+const loader = document.querySelector("#loader")
+
+function toggleLoader(loaderStatus) {
+  if (loaderStatus === true) {
+    loader.style.display='flex'
+  } else {
+    loader.style.display='none'
+  }
+}
 
 countrySearch.addEventListener('submit', e => {
   e.preventDefault()
+  toggleLoader(true)
   fetch(`${apiKey}/name/${countryName.value}`)
     .then(res => res.json())
     .then(data => manageData(data))
@@ -17,6 +27,7 @@ countrySearch.addEventListener('submit', e => {
 })
 
 const manageData = data => {
+  toggleLoader(false)
   console.log(data)
   resultsTitle.innerHTML = ''
   resultsContent.innerHTML = ''
