@@ -27,6 +27,13 @@
     </div>
     <form class="search-country" id="countrySearch">
       <input class="input" id="countryName" type="text" placeholder="Country Name" tabindex="1" autofocus>
+      <div class="form-group">
+        <input class="settings-modifier js-settings-modifier" id="settingsName" name="searchby" type="radio" value="name" checked>
+        <label class="settings-title" for="settingsName">Search by name</label>
+        
+        <input class="settings-modifier js-settings-modifier" id="settingsCode" name="searchby" type="radio" value="code">
+        <label class="settings-title" for="settingsCode">Search by code</label>
+      </div>
       <button class="btn search-submit" type="submit" tabindex="2">Get it</button>
     </form>
   </header>

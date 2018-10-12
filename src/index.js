@@ -17,13 +17,29 @@ function toggleLoader(loaderStatus) {
   }
 }
 
-countrySearch.addEventListener('submit', e => {
-  e.preventDefault()
-  toggleLoader(true)
-  fetch(`${apiKey}/name/${countryName.value}`)
+const searchByName = () => {
+  return fetch(`${apiKey}/name/${countryName.value}`)
     .then(res => res.json())
     .then(data => manageData(data))
     .catch(err => console.log(err))
+}
+
+const searchByCode = () => {
+  return fetch(`${apiKey}/alpha?codes=${countryName.value}`)
+    .then(res => res.json())
+    .then(data => manageData(data))
+    .catch(err => console.log(err))
+}
+
+countrySearch.addEventListener('submit', e => {
+  const searchBy = document.querySelector(".js-settings-modifier:checked").value
+  e.preventDefault()
+  toggleLoader(true)
+  if (searchBy == "name") {
+    searchByName();
+  } else {
+    searchByCode();
+  }
 })
 
 const manageData = data => {
