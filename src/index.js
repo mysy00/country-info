@@ -48,10 +48,6 @@ const manageData = data => {
   resultsTitle.innerHTML = ''
   resultsContent.innerHTML = ''
   resultsCountriesFound.innerHTML = ''
-  if (data.status) {
-    results.innerHTML = '<h3>Ops! Looks like there\'s no data to display.</h3>'
-    return false;
-  }
   data.forEach((country, index) => {
     const {
       name,
@@ -127,6 +123,9 @@ const manageData = data => {
     } else {
       resultsTitle.innerHTML = `<h3>We found a country!</h3>`
       resultsContent.innerHTML += foundData
+    }
+    if (data.status) {
+      results.innerHTML = '<h3>Ops! Looks like there\'s no data to display.</h3>'
     }
   })
 }
