@@ -62,8 +62,10 @@ const manageData = data => {
       callingCodes,
       topLevelDomain,
       subregion,
+      borders,
       currencies
     } = data[index]
+    let formattedBorders = (JSON.stringify(borders).replace(/"|\[|]/g, "") || 'None')
     const foundData = `
       <div class="country" data-result="${index}">
         <h3 class="country-title" tabindex="${index+3}">${ name } <img class="country-flag" src="${ flag }" alt></h3>
@@ -104,6 +106,11 @@ const manageData = data => {
           <div class="info-group">
             <dt class="info-title">Currencies</dt>
             <dd class="info-value">${ currencies[0].name }</dd>
+          </div>
+
+          <div class="info-group">
+            <dt class="info-title">Borders</dt>
+            <dd class="info-value">${ formattedBorders }</dd>
           </div>
     
           <div class="info-group">
