@@ -25,6 +25,8 @@ const searchByName = () => {
 }
 
 const searchByCode = () => {
+  countryName.value = countryName.value.replace(/\s/g, '').replace(',', ';');
+  console.log(countryName.value)
   return fetch(`${apiKey}/alpha?codes=${countryName.value}`)
     .then(res => res.json())
     .then(data => manageData(data))
