@@ -1,58 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Country Info</title>
-  <!-- Mobile header color for Chrome, Firefox OS and Opera -->
-  <meta name="theme-color" content="#4b6196">
-  <!-- Mobile header color Windows Phone -->
-  <meta name="msapplication-navbutton-color" content="#4b6196">
-  <!-- Mobile header color for iOS Safari (supports black, black-translucent or default) -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
-</head>
-<body>
-  <noscript>
-    <p>
-      Sorry, but this page requires JavaScript to work.
-      Time is passing by and somehow it doesn't want to work on your machine.
-      You immediately should concider either upgrading your web browser or enabling it. 
-    </p>
-  </noscript>
-  <header class="site-header">
-    <div class="site-title">
-        <h1 class="title">Country Search</h1>
-        <p class="subtitle">Get some info about a country</p>
-    </div>
-    <form class="search-country" id="countrySearch">
-      <input class="input" id="countryName" type="text" placeholder="Country Name" tabindex="1" autofocus>
-      <div class="form-group">
-        <input class="settings-modifier js-settings-modifier" id="settingsName" name="searchby" type="radio" value="name" checked>
-        <label class="settings-title" for="settingsName">Search by name</label>
-        
-        <input class="settings-modifier js-settings-modifier" id="settingsCode" name="searchby" type="radio" value="code">
-        <label class="settings-title" for="settingsCode">Search by code</label>
-      </div>
-      <button class="btn search-submit" type="submit" tabindex="2">Get it</button>
-    </form>
-  </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Country Info</title>
+		<!-- Mobile header color for Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#4b6196" />
+		<!-- Mobile header color Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#4b6196" />
+		<!-- Mobile header color for iOS Safari (supports black, black-translucent or default) -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Nunito:300,400,700"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<noscript>
+			<p>
+				Sorry, but this page requires JavaScript to work. Time is passing by and
+				somehow it doesn't want to work on your machine. You should immediately
+				concider either upgrading your web browser or enabling JavaScript.
+			</p>
+		</noscript>
+		<header class="site-header">
+			<div class="site-title">
+				<h1 class="title">Country Search</h1>
+				<p class="subtitle">Get info about a country</p>
+			</div>
+			<form class="search-country" id="countrySearch">
+				<input
+					class="input"
+					id="countryName"
+					type="text"
+					placeholder="Country Name"
+					tabindex="1"
+					autofocus
+				/>
+				<div class="form-group">
+					<input
+						class="settings-modifier js-settings-modifier"
+						id="settingsName"
+						name="searchby"
+						type="radio"
+						value="name"
+						checked
+					/>
+					<label class="settings-title" for="settingsName"
+						>Search by name</label
+					>
 
-  <main class="site-content" id="results">
-    <div class="loader" id="loader">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div id="resultsTitle"></div>
-    <ol id="resultsCountriesFound"></ol>
-    <div id="resultsContent"></div>
-  </main>
+					<input
+						class="settings-modifier js-settings-modifier"
+						id="settingsCode"
+						name="searchby"
+						type="radio"
+						value="code"
+					/>
+					<label class="settings-title" for="settingsCode"
+						>Search by code</label
+					>
+				</div>
+				<button class="btn search-submit" type="submit" tabindex="2">
+					Get it
+				</button>
+			</form>
+		</header>
 
-  <footer class="site-footer">
-    <p>
-      &copy; Divosky <span id="currentYear">2018</span>
-    </p>
-  </footer>
-</body>
+		<main class="site-content" id="results">
+			<div class="loader" id="loader">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="resultsTitle"></div>
+			<ol id="resultsCountriesFound"></ol>
+			<div id="resultsContent"></div>
+		</main>
+
+		<footer class="site-footer">
+			<p>&copy; Divosky <span id="currentYear">2020</span></p>
+		</footer>
+	</body>
 </html>
